@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Button, ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
 import SpaceCard from '../CustomCard/SpaceCard';
+import JobCard from '../CustomCard/JobCard';
 
 const Home = ({navigation}) => {
   return (
@@ -18,6 +19,7 @@ const Home = ({navigation}) => {
           />
           <SpaceCard
           />
+          <JobCard />
         </View>
       </ScrollView>
   );
