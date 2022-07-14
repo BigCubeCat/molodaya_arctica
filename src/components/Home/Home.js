@@ -6,7 +6,7 @@ import CustomCard from '../CustomCard/CustomCard';
 const Home = () => {
     return (
         <SafeAreaProvider style={styles.container}>
-            <CustomCard></CustomCard>
+            <CustomCard title={"F"}></CustomCard>
         </SafeAreaProvider>
     );
 };

@@ -2,10 +2,10 @@ import {Card} from '@rneui/themed';
 import {StyleSheet} from 'react-native-web';
 import {Button, Icon, Text} from '@rneui/base';
 
-export default function MyCard() {
+export default function MyCard({title}) {
   return (
       <Card>
-        <Card.Title>HELLO WORLD</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Divider/>
         <Card.Image
             style={{padding: 0}}
