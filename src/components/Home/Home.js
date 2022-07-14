@@ -4,12 +4,12 @@ import LogOff from '../LogOff/LogOff';
 import {fetchAPI} from '../../utils/API';
 import JobPage from '../Page/JobPage';
 import NewsPage from '../Page/NewsPage';
+import {getChat} from '../../utils/supabase';
 
 const Home = ({navigation}) => {
   useEffect(async () => {
-    const result = await fetchAPI(
-        'https://molodaya-arctica.ru/api/content/feeds?page=1');
-    // console.log(result)
+    const result = await getChat();
+    console.log(result)
   }, []);
   return (
       <ScrollView>

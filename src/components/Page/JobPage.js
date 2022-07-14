@@ -10,7 +10,6 @@ export default function SpacesPage() {
         'https://molodaya-arctica.ru/api/content/jobs?page=1');
     setJobs(result.resources);
   }, []);
-  console.log(jobs[0].entity)
   return (
       <ScrollView>
         {jobs.map(poster => {
