@@ -1,13 +1,14 @@
 import {StyleSheet, ScrollView} from 'react-native';
 import Main from './src/components/Main/Main';
-import {Header} from 'react-native/Libraries/NewAppScreen';
+import Header from './src/components/Header/Header';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-      <ScrollView >
+      <SafeAreaProvider>
         <Header/>
         <Main/>
-      </ScrollView>
+      </SafeAreaProvider>
   );
 }
 
