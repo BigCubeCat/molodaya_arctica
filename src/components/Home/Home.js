@@ -1,14 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, Button} from 'react-native';
-import {Text} from '@rneui/themed';
+import {View, StyleSheet} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import CustomCard from '../CustomCard/CustomCard';
 
-
-const Home = ({ navigation }) => {
+const Home = () => {
     return (
-        <View style={styles.container}>
-            <Text>Молодая Арктика!</Text>
-            <Button title="Go to Login" onPress={() => navigation.navigate('Login')} />
-        </View>
+        <SafeAreaProvider style={styles.container}>
+            <CustomCard></CustomCard>
+        </SafeAreaProvider>
     );
 };
 
@@ -16,9 +15,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#F00"
     },
 });
-
 export default Home;

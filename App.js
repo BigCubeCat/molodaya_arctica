@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import Home from "./src/components/Home/Home"
 import Login from "./src/components/Login/Login"
 import Header from "./src/components/Header/Header"
+import Home from "./src/components/Home/Home"
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
