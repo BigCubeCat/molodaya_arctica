@@ -1,20 +1,57 @@
-import React from 'react';
-import {View, StyleSheet, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, Dimensions} from 'react-native';
 import {Text} from '@rneui/themed';
+import {AppContext} from "../../../App";
+import {Input, Icon, Button} from '@rneui/themed';
+import { AsyncStorage } from 'react-native';
 
+const Login = ({navigation}) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const {isSignedIn, setIsSignedIn} = React.useContext(AppContext)
 
-const Login = ({ navigation }) => {
+    const onPressLogin = async () => {
+        const response = await fetch("https://molodaya-arctica.ru/api/auth/login", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({email, password})
+        })
+        const result = await response.json()
+        if(result.access_token){
+            await AsyncStorage.setItem(
+                'access_token',
+                result.access_token
+            );
+            setIsSignedIn(true)
+            navigation.navigate('Home')
+        }
+    }
     return (
         <View style={styles.container}>
-            <Text>Login</Text>
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-        </View>
+            <Text>Вход в приложение</Text>
+            <Input
+                placeholder='Имя пользователя'
+                onChangeText={value => setEmail(value)}
+            />
+            <Input
+                placeholder='Пароль'
+                onChangeText={value => setPassword(value)}
+            />
+            <Button title="Вход" onPress={onPressLogin}/>
+       </View>
     );
 };
+const {height} = Dimensions.get('window');
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginLeft: height * 0.1,
+        marginRight: height * 0.1,
         justifyContent: "center",
         alignItems: "center"
     },
