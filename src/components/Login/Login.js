@@ -17,9 +17,10 @@ const Login = ({navigation}) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({email: "bigcubecat@yandex.ru", password: "PeDsWPp29&bZ2W!c"})
         })
         const result = await response.json()
+        console.log("acces_token = ", result.access_token)
         if(result.access_token){
             await AsyncStorage.setItem(
                 'access_token',
