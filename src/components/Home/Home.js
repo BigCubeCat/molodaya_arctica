@@ -3,14 +3,14 @@ import {View, StyleSheet, Button, ScrollView} from 'react-native';
 import LogOff from '../LogOff/LogOff';
 import NewsPage from '../Page/NewsPage';
 
-const Home = ({navigation}) => {
+const Home = ({navigation, user}) => {
   return (
       <ScrollView>
         <View style={styles.container}>
           <Button title="Go to Home"
                   onPress={() => navigation.navigate('Login')}/>
           <LogOff/>
-          <NewsPage/>
+          <NewsPage user={user}/>
         </View>
       </ScrollView>
   );

@@ -11,6 +11,7 @@ export default function MyCard(
       datetime = '21 мая в 06:00',
       city = 'Мурманск',
       id = '0',
+      user = '',
     }) {
   return (
       <Card containerStyle={styles.card}>
@@ -26,7 +27,7 @@ export default function MyCard(
           {cardContent}
         </Text>
         <Text style={styles.infoText}>{datetime} · {city}</Text>
-        <Chat chat_id={id} />
+        <Chat chat_id={id} user={user}/>
         <Button
             type="clear"
             buttonStyle={{

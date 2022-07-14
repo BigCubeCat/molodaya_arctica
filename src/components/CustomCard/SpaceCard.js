@@ -10,6 +10,7 @@ export default function SpaceCard(
       address = 'Мурманская обл, г Апатиты, ул Фестивальная, д 23А',
       imageUri = 'https://randomuser.me/api/portraits/men/36.jpg',
       description = 'В городе Кандалакша, современное молодежное пространство «Arctic Space», концепцию которого модернизирована и разработана Дизайн-заводом "Флакон" (г. Москва)',
+        user=""
     },
 ) {
   return (

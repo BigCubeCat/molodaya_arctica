@@ -17,7 +17,7 @@ const App = () => {
     useEffect(() => {
         fetchAPI("https://molodaya-arctica.ru/api/auth/user").then((r) => {
             setIsSignedIn(true)
-            setUser(r)
+            setUser(r.resource.email)
         }).catch((e) => {
             // if (e.message === "Unauthenticated.") {
             setIsSignedIn(false)
@@ -28,10 +28,9 @@ const App = () => {
     if (isSignedIn === null) {
         return <View><Text>Loading</Text></View>
     }
-
     return (
         <SafeAreaProvider>
-            <AppContext.Provider value={{isSignedIn, setIsSignedIn}}>
+            <AppContext.Provider value={{isSignedIn, setIsSignedIn, user, setUser}}>
                 <NavigationContainer>
                     <ScrollView contentContainerStyle={styles.container}>
                         {isSignedIn === false ? (
