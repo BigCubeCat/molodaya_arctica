@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Button} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
         <View style={styles.container}>
+            <Button title="Go to Home" onPress={() => navigation.navigate('Login')} />
             <CustomCard></CustomCard>
         </View>
     );
@@ -13,10 +14,9 @@ const Home = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: "#F00"
+        backgroundColor: "blue"
     },
 });
 export default Home;
