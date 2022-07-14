@@ -5,6 +5,10 @@ import SpaceCard from '../CustomCard/SpaceCard';
 import JobCard from '../CustomCard/JobCard';
 
 const Home = ({navigation}) => {
+    useEffect(async ()=>{
+        const result = await fetchAPI("https://molodaya-arctica.ru/api/content/feeds?page=1")
+        console.log(result)
+    },[])
   return (
       <ScrollView>
         <View style={styles.container}>
