@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56c2b122-d596-4771-8fb3-a78136ecfbd5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CustomCard/CustomCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main/Main.js" afterDir="false" />
-    </list>
+    <list default="true" id="56c2b122-d596-4771-8fb3-a78136ecfbd5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +46,7 @@
       <updated>1657803673713</updated>
       <workItem from="1657803675011" duration="3712000" />
       <workItem from="1657807688156" duration="313000" />
-      <workItem from="1657808586181" duration="1616000" />
+      <workItem from="1657808586181" duration="1917000" />
     </task>
     <servers />
   </component>
