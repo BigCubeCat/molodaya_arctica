@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {fetchAPI} from "./src/utils/API";
 import Drawer from "./src/components/Drawer/Drawer";
+import 'react-native-url-polyfill/auto'; // FOR supabase works
 
 
 export const AppContext = React.createContext(null);
