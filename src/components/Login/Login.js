@@ -17,7 +17,7 @@ const Login = ({navigation}) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email, password})
+            body: JSON.stringify({email: 'konstantin.re@gmail.com', password: '20VCfELuOPqTz2'})
         })
         const result = await response.json()
         if(result.access_token){

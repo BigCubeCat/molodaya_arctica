@@ -9,7 +9,7 @@ import {fetchAPI} from "../../utils/API";
 const Home = ({navigation}) => {
     useEffect(async ()=>{
         const result = await fetchAPI("https://molodaya-arctica.ru/api/content/feeds?page=1")
-        console.log(result)
+        // console.log(result)
     },[])
   return (
       <ScrollView>
