@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import Main from "./src/components/Main/Main"
+import Home from "./src/components/Home/Home"
 import Login from "./src/components/Login/Login"
 import Header from "./src/components/Header/Header"
 import {NavigationContainer} from '@react-navigation/native';
@@ -24,7 +24,7 @@ const App = () => {
                     headerShow: true, header: (p) =>
                         <Header/>
                 }}>
-                    <Stack.Screen name="Main" component={Main}/>
+                    <Stack.Screen name="Home" component={Home}/>
                     <Stack.Screen name="Login" component={Login}/>
                 </Stack.Navigator>
             </ScrollView>

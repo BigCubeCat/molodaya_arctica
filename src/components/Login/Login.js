@@ -7,7 +7,7 @@ const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Login</Text>
-            <Button title="Go to Home" onPress={() => navigation.navigate('Main')} />
+            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
 
         </View>
     );

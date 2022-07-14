@@ -3,7 +3,7 @@ import {View, StyleSheet, Button} from 'react-native';
 import {Text} from '@rneui/themed';
 
 
-const Main = ({ navigation }) => {
+const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Молодая Арктика!</Text>
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Main;
+export default Home;
