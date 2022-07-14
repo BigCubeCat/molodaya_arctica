@@ -2,16 +2,18 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Text} from '@rneui/themed';
 import { Header as HeaderRNE, HeaderProps, Icon } from '@rneui/themed';
+import {Button} from '@rneui/base';
 
 
 const Header = () => {
     return (
         <View style={styles.container}>
             <HeaderRNE
-                leftComponent={{
-                    icon: 'menu',
-                    color: '#fff',
-                }}
+                leftComponent={
+                <Button style={styles.menu}>
+                    <Icon name="menu" color={'white'}/>
+                </Button>
+                }
                 centerComponent={{ text: 'Header', style: styles.heading }}
             >
             </HeaderRNE>
@@ -21,8 +23,6 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'grey',
-        height:100,
     },
     headerContainer: {
         justifyContent: 'center',
@@ -37,6 +37,10 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
     },
+    menu: {
+        width: 10,
+        height: 10,
+    }
 });
 
 export default Header;
