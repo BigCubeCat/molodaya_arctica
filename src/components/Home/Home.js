@@ -6,6 +6,7 @@ import JobCard from '../CustomCard/JobCard';
 import {fetchAPI} from '../../utils/API';
 import NewsPage from '../Page/NewsPage';
 import EventsPage from '../Page/EventsPage';
+import SpacesPage from '../Page/SpacesPage';
 
 const Home = ({navigation}) => {
   return (
@@ -14,7 +15,7 @@ const Home = ({navigation}) => {
           <Button title="Go to Home"
                   onPress={() => navigation.navigate('Login')}/>
         </View>
-        <EventsPage />
+        <SpacesPage/>
       </ScrollView>
   );
 };

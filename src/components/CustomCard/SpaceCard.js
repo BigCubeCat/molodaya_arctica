@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
   address: {
     color: '#565862',
     fontSize: 10,
+    maxWidth: '80%'
   },
   description: {
     color: '#565862',

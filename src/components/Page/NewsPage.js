@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {fetchAPI} from '../../utils/API';
 import {ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
