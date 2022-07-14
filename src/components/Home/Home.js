@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
+import SpaceCard from '../CustomCard/SpaceCard';
 
 const Home = ({navigation}) => {
   return (
@@ -13,6 +14,8 @@ const Home = ({navigation}) => {
               'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg'
             }
             cardContent={"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFf"}
+        />
+        <SpaceCard
         />
         </View>
   );

@@ -14,7 +14,7 @@ const Header = () => {
                     <Icon name="menu" color={'white'}/>
                 </Button>
                 }
-                centerComponent={{ text: 'Header', style: styles.heading }}
+                centerComponent={{ text: 'Молодая Арктика', style: styles.heading }}
             >
             </HeaderRNE>
         </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         color: 'white',
-        fontSize: 22,
+        fontSize: 16,
         fontWeight: 'bold',
     },
     menu: {
