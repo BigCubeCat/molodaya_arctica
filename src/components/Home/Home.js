@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, StyleSheet, Button, ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
 import SpaceCard from '../CustomCard/SpaceCard';
