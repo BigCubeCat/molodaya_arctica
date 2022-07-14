@@ -14,6 +14,7 @@ export default function NewsPage() {
       <ScrollView>
         {posters.map(poster => {
           return <CustomCard
+              id={'n'+poster.id}
               title={poster.title} cardContent={poster.caption}
               imageUri={poster.media[0].path}
               datetime={(new Date(poster.created_at)).toLocaleDateString()}

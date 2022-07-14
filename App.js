@@ -13,9 +13,11 @@ export const AppContext = React.createContext(null);
 
 const App = () => {
     const [isSignedIn, setIsSignedIn] = useState(null)
+    const [user, setUser] = useState("guest");
     useEffect(() => {
         fetchAPI("https://molodaya-arctica.ru/api/auth/user").then((r) => {
             setIsSignedIn(true)
+            setUser(r)
         }).catch((e) => {
             // if (e.message === "Unauthenticated.") {
             setIsSignedIn(false)
