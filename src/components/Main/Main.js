@@ -1,12 +1,13 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Button} from 'react-native';
 import {Text} from '@rneui/themed';
 
 
-const Main = () => {
+const Main = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>Молодая Арктика!</Text>
+            <Button title="Go to Login" onPress={() => navigation.navigate('Login')} />
         </View>
     );
 };
