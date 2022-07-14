@@ -3,6 +3,8 @@ import {View, StyleSheet, Button, ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
 import SpaceCard from '../CustomCard/SpaceCard';
 import JobCard from '../CustomCard/JobCard';
+import LogOff from "../LogOff/LogOff";
+import {fetchAPI} from "../../utils/API";
 
 const Home = ({navigation}) => {
     useEffect(async ()=>{
@@ -14,6 +16,7 @@ const Home = ({navigation}) => {
         <View style={styles.container}>
           <Button title="Go to Home"
                   onPress={() => navigation.navigate('Login')}/>
+            <LogOff/>
           <CustomCard
               title={'Иди своей дорогой'}
               imageUri={
