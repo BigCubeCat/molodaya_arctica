@@ -1,15 +1,12 @@
+import 'react-native-gesture-handler';
 import React, {useEffect, useState} from 'react';
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import Login from "./src/components/Login/Login"
-import Header from "./src/components/Header/Header"
-import Home from "./src/components/Home/Home"
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {fetchAPI} from "./src/utils/API";
+import Drawer from "./src/components/Drawer/Drawer";
 
-
-const Stack = createNativeStackNavigator();
 
 export const AppContext = React.createContext(null);
 
@@ -34,20 +31,10 @@ const App = () => {
             <AppContext.Provider value={{isSignedIn, setIsSignedIn}}>
                 <NavigationContainer>
                     <ScrollView contentContainerStyle={styles.container}>
-                        <Stack.Navigator screenOptions={{
-                            headerShow: true, header: (p) =>
-                                isSignedIn && <Header/>
-                        }}>
-                            {isSignedIn === false ? (
-                                <>
-                                    <Stack.Screen name="Login" component={Login}/>
-                                </>
-                            ) : (
-                                <>
-                                    <Stack.Screen name="Home" component={Home}/>
-                                </>
-                            )}
-                        </Stack.Navigator>
+                        {isSignedIn === false ? (
+                            <Login/>) : (
+                            <Drawer/>)
+                        }
                     </ScrollView>
                 </NavigationContainer>
             </AppContext.Provider>
@@ -59,7 +46,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: 'green'
     },
 });
 
