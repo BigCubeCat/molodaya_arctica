@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
   },
   chat: {
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 5,
     marginBottom: 20,
-    minWidth: '90%',
+    width: '93%',
     backgroundColor: 'white',
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#adadad',
+    borderWidth: 2,
+    borderColor: 'lightgrey',
   },
 });
