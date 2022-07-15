@@ -13,6 +13,7 @@ import {AsyncStorage, Text, View} from "react-native";
 import {AppContext} from "../../../App";
 import AllPage from '../Page/AllPage';
 import JobPage from '../Page/JobPage';
+import WorkSVG from "../SVG/work";
 
 const DrawerNav = createDrawerNavigator();
 
@@ -67,7 +68,7 @@ const Drawer = () => {
             }}/>
             <DrawerNav.Screen name="Работа" component={JobPage} options={{
                 drawerIcon: ({focused, size}) => (
-                    <EventsSVG/>
+                    <WorkSVG/>
                 ),
             }}/>
         </DrawerNav.Navigator>
