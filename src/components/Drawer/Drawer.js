@@ -6,6 +6,7 @@ import NewsSVG from '../SVG/news';
 import EventsSVG from '../SVG/events';
 import SpacesPage from '../Page/SpacesPage';
 import AllPage from '../Page/AllPage';
+import JobPage from '../Page/JobPage';
 
 const DrawerNav = createDrawerNavigator();
 
@@ -28,6 +29,11 @@ const Drawer = () => {
           ),
         }}/>
         <DrawerNav.Screen name="Пространства" component={SpacesPage} options={{
+          drawerIcon: ({focused, size}) => (
+              <EventsSVG/>
+          ),
+        }}/>
+        <DrawerNav.Screen name="Работа" component={JobPage} options={{
           drawerIcon: ({focused, size}) => (
               <EventsSVG/>
           ),

@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {fetchAPI} from '../../utils/API';
 import {ScrollView} from 'react-native';
-import SpaceCard from '../CustomCard/SpaceCard';
+import JobCard from '../CustomCard/JobCard';
 
-export default function SpacesPage() {
+
+export default function JobPage() {
   const [jobs, setJobs] = useState([]);
   useEffect(async () => {
     const result = await fetchAPI(
@@ -13,12 +14,11 @@ export default function SpacesPage() {
   return (
       <ScrollView>
         {jobs.map(poster => {
-          return <SpaceCard
+          return <JobCard
               id={'j'+poster.id}
               title={poster.title}
               location={poster.address.title}
               description={poster.caption}
-              // TODO: FIX salary
           />;
         })}
       </ScrollView>

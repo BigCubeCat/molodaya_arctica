@@ -4,10 +4,10 @@ import {Button, Icon, Text} from '@rneui/base';
 
 export default function JobCard(
     {
-      title = 'Пидорас',
-      salary = 'хуй без соли',
+      title = 'Должность',
+      salary = 'По итогам собеседования',
       location = 'Мурманская область, г. Мончегорск, Нагорная улица, 184511, г Мончегорск, ул Нагорная, д. 34',
-      owner = 'Клоуны',
+      owner = '',
       date = '10 июня',
     },
 ) {
