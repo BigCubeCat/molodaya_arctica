@@ -1,4 +1,4 @@
-import {ScrollView} from 'react-native';
+import {ScrollView, TextInput} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {Button, Icon, Input, Text} from '@rneui/base';
@@ -15,11 +15,18 @@ export default function Chat({chat_id = '0'}) {
   useEffect(() => {
     const fetchReq = async () => {
       let [data, error] = await getChat(chat_id);
-      console.log(data, error);
       setAllMessages(data);
     };
     fetchReq().catch(console.error);
-  }, [message]);
+  }, []);
+  const onSendMsg = () => {
+    const fetchReq = async () => {
+      let [data, error] = await getChat(chat_id);
+      setAllMessages(data);
+    };
+    fetchReq().catch(console.error);
+    setMessage('')
+  };
   return (
       <View style={styles.chat}>
         <View>
@@ -31,25 +38,25 @@ export default function Chat({chat_id = '0'}) {
                 />)
           }
         </View>
-        <Input
-            style={styles.input}
-            placeholder="Comment"
-            onChangeText={value => setMessage(value)}
-        />
-        <Button
-            buttonStyle={styles.send_button}
-            onPress={() => {
-              const fetchRequest = async () => {
-                let {data, error} = await sendMessage(chat_id, user, message);
-                if (error) {
-                  console.error(error);
-                }
-              };
-              fetchRequest().then(setMessage('')).catch(console.error);
-            }}
-        >Отправить <Icon name="send" color={'white'}/>
-        </Button>
-
+        <View style={styles.send_form}>
+          <TextInput
+              style={styles.input}
+              onChangeText={setMessage}
+              value={message}
+              placeholder="Ваш коментарий"
+          />
+          <Button
+              buttonStyle={styles.send_button}
+              onPress={() => {
+                setMessage('')
+                const fetchRequest = async () => {
+                  await sendMessage(chat_id, user, message);
+                };
+                fetchRequest().then(() => onSendMsg()).catch(console.error);
+              }}
+          ><Icon name="send" color={'white'}/>
+          </Button>
+        </View>
       </View>
 
   );
@@ -57,17 +64,26 @@ export default function Chat({chat_id = '0'}) {
 const styles = StyleSheet.create({
   chat_bg: {},
   send_button: {
-    borderRadius: 10,
+    width: 50,
+    height: 50,
   },
   send_form: {
+    width: '100%',
     flexDirection: 'row',
+    marginTop: 20,
+    marginBottom: 10,
+    alignItems: 'space-between',
   },
   input: {
-    width: '100%',
+    width: '80%',
+    borderWidth: 1,
+    borderColor: '#adadad',
+    height: 50,
   },
   chat: {
     alignSelf: 'center',
     marginTop: 20,
+    marginBottom: 20,
     minWidth: '90%',
     backgroundColor: 'white',
     borderRadius: 10,
