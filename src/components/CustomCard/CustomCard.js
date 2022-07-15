@@ -1,6 +1,7 @@
 import {Card} from '@rneui/themed';
 import {StyleSheet} from 'react-native-web';
 import {Button, Icon, Text} from '@rneui/base';
+import RenderHtml from 'react-native-render-html';
 
 export default function MyCard(
     {
@@ -15,6 +16,7 @@ export default function MyCard(
         fullText="",
       chooseCallback = () => {
       },
+        text=""
     }) {
   return (
       <Card containerStyle={styles.card}>
@@ -34,6 +36,9 @@ export default function MyCard(
         </Text>
         <Text style={styles.infoText}>{datetime} · {city}</Text>
         {
+          (text === "") ? null : <RenderHtml source={{html: text}} />
+          }
+        {
           (noMore) ? null :
               <Button
                   type="clear"
@@ -44,7 +49,7 @@ export default function MyCard(
                     marginRight: 0,
                     marginBottom: 0,
                   }}
-                  title="Подробнее"
+                  title={(text === "") ? "Подробнее": "Закрыть"}
               />
         }
 
