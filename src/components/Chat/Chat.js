@@ -22,12 +22,12 @@ export default function Chat({chat_id = '0'}) {
   }, [message]);
   return (
       <View>
-        <ScrollView>
+        <ScrollView style={styles.chat_bg} >
           {
             allMessages.map(
                 mess => <Message
                     text={mess.message}
-                    myself={mess.author === user}
+                    myself={mess.author == user}
                 />)
           }
         </ScrollView>
@@ -55,6 +55,11 @@ export default function Chat({chat_id = '0'}) {
   );
 }
 const styles = StyleSheet.create({
+  chat_bg: {
+    backgroundColor: "#adadad",
+    borderRadius: 10,
+    maxHeight: 500,
+  },
   send_button: {
     borderRadius: 100,
   },

@@ -3,10 +3,12 @@ import {StyleSheet} from 'react-native-web';
 import {Text} from '@rneui/base';
 
 const Message = ({text, myself=false}) => {
-  const messageStyle = (myself) ? styles.my_message : styles.other_message;
   return (
-      <View style={messageStyle} >
-        <Text>
+      <View style={
+        {...styles.message, alignSelf: (myself) ? "flex-end" : "flex-start",
+        backgroundColor: (myself) ? "#8E2DE2" : "green"}
+      }>
+        <Text style={{...styles.text, textAlign: (myself) ? "right":"left"}}>
           {text}
         </Text>
       </View>
@@ -14,17 +16,16 @@ const Message = ({text, myself=false}) => {
 }
 
 const styles = StyleSheet.create({
-  my_message: {
-    backgroundColor: "#8E2DE2",
+  message: {
     borderRadius: 10,
+    width: '60%',
     padding: 5,
-    margin: 5,
+    margin: 10,
   },
-  other_message: {
-    minHeight: 80,
-    background: "linear-gradient(to right, #134e5e, #71b280);",
-    fontSize: 15,
-}
+  text: {
+    color: 'white',
+    margin: 5
+  },
 })
 
 export default Message;
