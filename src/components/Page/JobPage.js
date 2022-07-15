@@ -11,14 +11,17 @@ export default function JobPage() {
         'https://molodaya-arctica.ru/api/content/jobs?page=1');
     setJobs(result.resources);
   }, []);
+
   return (
       <ScrollView>
         {jobs.map(poster => {
+          let url = poster.entity.company["url"]
           return <JobCard
               id={'j'+poster.id}
               title={poster.title}
               location={poster.address.title}
               description={poster.caption}
+              link={url}
           />;
         })}
       </ScrollView>
