@@ -7,6 +7,7 @@ import React from 'react';
 import EventsPage from '../Page/EventsPage';
 import NewsSVG from '../SVG/news';
 import EventsSVG from '../SVG/events';
+import LogOffSVG from '../SVG/logOff'
 import SpacesPage from '../Page/SpacesPage';
 import {AsyncStorage, Text, View} from "react-native";
 import {AppContext} from "../../../App";
@@ -28,9 +29,11 @@ function CustomDrawerContent(props) {
                 <DrawerItemList {...props} />
             </View>
             <View style={{
-                backgroundColor: "#383B46", bottom: 0, position: 'absolute', width: '100%' }}>
+                backgroundColor: "#383B46", bottom: 0, position: 'absolute', width: '100%'
+            }}>
                 <DrawerItem label={() =>
-                    <Text style={{color: 'white'}}>Выйти</Text>}
+                    <View style={{flex:1,flexDirection:"row"}}><LogOffSVG/><Text style={{color: 'white', marginLeft:15, marginTop:1}}>Выйти</Text></View>
+                }
                             onPress={logOff}
                 ></DrawerItem>
             </View>
@@ -40,35 +43,35 @@ function CustomDrawerContent(props) {
 
 
 const Drawer = () => {
-  return (
-      <DrawerNav.Navigator  drawerContent={(props) => <CustomDrawerContent {...props} />}>
-        <DrawerNav.Screen name="Актуальное" component={AllPage} options={{
-          drawerIcon: ({focused, size}) => (
-              <NewsSVG/>
-          ),
-        }}/>
-        <DrawerNav.Screen name="Новости" component={Home} options={{
-          drawerIcon: ({focused, size}) => (
-              <NewsSVG/>
-          ),
-        }}/>
-        <DrawerNav.Screen name="События" component={EventsPage} options={{
-          drawerIcon: ({focused, size}) => (
-              <EventsSVG/>
-          ),
-        }}/>
-        <DrawerNav.Screen name="Пространства" component={SpacesPage} options={{
-          drawerIcon: ({focused, size}) => (
-              <EventsSVG/>
-          ),
-        }}/>
-        <DrawerNav.Screen name="Работа" component={JobPage} options={{
-          drawerIcon: ({focused, size}) => (
-              <EventsSVG/>
-          ),
-        }}/>
-      </DrawerNav.Navigator>
-  );
+    return (
+        <DrawerNav.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}>
+            <DrawerNav.Screen name="Актуальное" component={AllPage} options={{
+                drawerIcon: ({focused, size}) => (
+                    <NewsSVG/>
+                ),
+            }}/>
+            <DrawerNav.Screen name="Новости" component={Home} options={{
+                drawerIcon: ({focused, size}) => (
+                    <NewsSVG/>
+                ),
+            }}/>
+            <DrawerNav.Screen name="События" component={EventsPage} options={{
+                drawerIcon: ({focused, size}) => (
+                    <EventsSVG/>
+                ),
+            }}/>
+            <DrawerNav.Screen name="Пространства" component={SpacesPage} options={{
+                drawerIcon: ({focused, size}) => (
+                    <EventsSVG/>
+                ),
+            }}/>
+            <DrawerNav.Screen name="Работа" component={JobPage} options={{
+                drawerIcon: ({focused, size}) => (
+                    <EventsSVG/>
+                ),
+            }}/>
+        </DrawerNav.Navigator>
+    );
 };
 
 export default Drawer;
