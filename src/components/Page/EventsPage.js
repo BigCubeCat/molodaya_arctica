@@ -1,26 +1,47 @@
 import React, {useState, useEffect} from 'react';
 import {fetchAPI} from '../../utils/API';
-import {ScrollView} from 'react-native';
+import {BackHandler, ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
+import Chat from '../Chat/Chat';
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
+  const [currentCard, setCurrentCard] = useState(null);
   useEffect(async () => {
     const result = await fetchAPI(
         'https://molodaya-arctica.ru/api/content/events?page=1');
     setEvents(result.resources);
   }, []);
-  return (
-      <ScrollView>
-        {events.map(poster => {
-          return <CustomCard
-              id={'e'+poster.id}
-              title={poster.title} cardContent={poster.caption}
-              imageUri={poster.media[0].path}
-              city={poster.address.settlement}
-              datetime={(new Date(poster.created_at)).toLocaleDateString()}
-          />;
-        })}
-      </ScrollView>
-  );
+  if (currentCard === null) {
+    return (
+        <ScrollView>
+          {events.map((poster, num) => {
+            return <CustomCard
+                id={'e' + poster.id}
+                num={num} chooseCallback={() => setCurrentCard(num)}
+                title={poster.title} cardContent={poster.caption}
+                imageUri={poster.media[0].path}
+                city={poster.address.settlement}
+                datetime={(new Date(poster.created_at)).toLocaleDateString()}
+            />;
+          })}
+        </ScrollView>
+    );
+  } else {
+    const poster = events[currentCard];
+    BackHandler.addEventListener('hardwareBackPress', function () {setCurrentCard(null)})
+      return (
+        <ScrollView><CustomCard
+            id={'e' + poster.id}
+            num={null} chooseCallback={() => setCurrentCard(null)}
+            title={poster.title} cardContent={poster.caption}
+            imageUri={poster.media[0].path}
+            city={poster.address.settlement}
+            fullText={poster.entity.content.split('>')[1].split('<')[0]}
+            noMore={true}
+            datetime={(new Date(poster.created_at)).toLocaleDateString()} />
+          <Chat chat_id={'e' + poster.id} />
+        </ScrollView>
+    )
+  }
 }

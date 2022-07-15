@@ -21,8 +21,8 @@ export default function Chat({chat_id = '0'}) {
     fetchReq().catch(console.error);
   }, [message]);
   return (
-      <View>
-        <ScrollView style={styles.chat_bg} >
+      <View style={styles.chat}>
+        <View>
           {
             allMessages.map(
                 mess => <Message
@@ -30,7 +30,7 @@ export default function Chat({chat_id = '0'}) {
                     myself={mess.author == user}
                 />)
           }
-        </ScrollView>
+        </View>
         <Input
             style={styles.input}
             placeholder="Comment"
@@ -55,18 +55,23 @@ export default function Chat({chat_id = '0'}) {
   );
 }
 const styles = StyleSheet.create({
-  chat_bg: {
-    backgroundColor: "#adadad",
-    borderRadius: 10,
-    maxHeight: 500,
-  },
+  chat_bg: {},
   send_button: {
-    borderRadius: 100,
+    borderRadius: 10,
   },
   send_form: {
     flexDirection: 'row',
   },
   input: {
-    width: 10,
+    width: '100%',
+  },
+  chat: {
+    alignSelf: 'center',
+    marginTop: 20,
+    minWidth: '90%',
+    backgroundColor: 'white',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#adadad',
   },
 });

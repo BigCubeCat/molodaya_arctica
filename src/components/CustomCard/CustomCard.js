@@ -1,7 +1,6 @@
 import {Card} from '@rneui/themed';
 import {StyleSheet} from 'react-native-web';
 import {Button, Icon, Text} from '@rneui/base';
-import Chat from '../Chat/Chat';
 
 export default function MyCard(
     {
@@ -11,7 +10,11 @@ export default function MyCard(
       datetime = '21 мая в 06:00',
       city = 'Мурманск',
       id = '0',
-      user = '',
+      num = 0,
+      noMore = false,
+        fullText="",
+      chooseCallback = () => {
+      },
     }) {
   return (
       <Card containerStyle={styles.card}>
@@ -26,18 +29,25 @@ export default function MyCard(
         <Text style={{marginBottom: 10, marginTop: 10}}>
           {cardContent}
         </Text>
+        <Text style={{marginBottom: 10, marginTop: 10}}>
+          {fullText}
+        </Text>
         <Text style={styles.infoText}>{datetime} · {city}</Text>
-        <Chat chat_id={id} user={user}/>
-        <Button
-            type="clear"
-            buttonStyle={{
-              borderRadius: 0,
-              marginLeft: 0,
-              marginRight: 0,
-              marginBottom: 0,
-            }}
-            title="Подробнее"
-        />
+        {
+          (noMore) ? null :
+              <Button
+                  type="clear"
+                  onPress={() => chooseCallback()}
+                  buttonStyle={{
+                    borderRadius: 0,
+                    marginLeft: 0,
+                    marginRight: 0,
+                    marginBottom: 0,
+                  }}
+                  title="Подробнее"
+              />
+        }
+
       </Card>
   );
 }

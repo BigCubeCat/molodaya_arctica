@@ -18,8 +18,7 @@ const Message = ({text, myself=false}) => {
 const styles = StyleSheet.create({
   message: {
     borderRadius: 10,
-    width: '60%',
-    padding: 5,
+    padding: 12,
     margin: 10,
   },
   text: {
