@@ -7,7 +7,9 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {fetchAPI} from "./src/utils/API";
 import Drawer from "./src/components/Drawer/Drawer";
 import 'react-native-url-polyfill/auto'; // FOR supabase works
-
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 export const AppContext = React.createContext(null);
 

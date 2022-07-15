@@ -37,17 +37,19 @@ export default function Chat({chat_id = '0'}) {
                   mess => <Message
                       text={mess.message}
                       myself={mess.author == user}
+                      author={mess.author}
                   />)
             }
           </View>
 
         </View>
         <View style={styles.send_form}>
-          <TextInput
-              style={styles.input}
-              onChangeText={setMessage}
-              value={message}
+          <Input
               placeholder="Комментарии к событию"
+              containerStyle={styles.input}
+              leftIcon={{ type: 'font-awesome', name: 'comment' }}
+              onChangeText={setMessage}
+              size={24}
           />
           <Button
               buttonStyle={styles.send_button}
@@ -69,6 +71,7 @@ const styles = StyleSheet.create({
   send_button: {
     width: '50%',
     height: 50,
+    backgroundColor: '#7D3EDC',
   },
   send_form: {
     width: '90%',
@@ -80,18 +83,16 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '85%',
-    borderWidth: 1,
-    borderColor: '#adadad',
-    height: 50,
+    marginBottom:-24
   },
   chat: {
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 5,
     marginBottom: 20,
-    minWidth: '90%',
+    width: '93%',
     backgroundColor: 'white',
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#adadad',
+    borderWidth: 2,
+    borderColor: 'lightgrey',
   },
 });
