@@ -1,24 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import {fetchAPI} from '../../utils/API';
 import {ScrollView} from 'react-native';
-import SpaceCard from '../CustomCard/SpaceCard';
+import JobCard from '../CustomCard/JobCard';
 
-export default function SpacesPage() {
+
+export default function JobPage() {
   const [jobs, setJobs] = useState([]);
   useEffect(async () => {
     const result = await fetchAPI(
         'https://molodaya-arctica.ru/api/content/jobs?page=1');
     setJobs(result.resources);
   }, []);
+
   return (
       <ScrollView>
         {jobs.map(poster => {
-          return <SpaceCard
+          let url = poster.entity.company["url"]
+          return <JobCard
               id={'j'+poster.id}
               title={poster.title}
               location={poster.address.title}
               description={poster.caption}
-              // TODO: FIX salary
+              link={url}
           />;
         })}
       </ScrollView>

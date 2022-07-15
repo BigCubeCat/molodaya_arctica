@@ -1,13 +1,15 @@
 import {Card} from '@rneui/themed';
 import {StyleSheet} from 'react-native-web';
 import {Button, Icon, Text} from '@rneui/base';
+import {Linking} from 'react-native';
 
 export default function JobCard(
     {
-      title = 'Пидорас',
-      salary = 'хуй без соли',
+      title = 'Должность',
+      salary = 'По итогам собеседования',
       location = 'Мурманская область, г. Мончегорск, Нагорная улица, 184511, г Мончегорск, ул Нагорная, д. 34',
-      owner = 'Клоуны',
+      owner = '',
+        link="https://google.com",
       date = '10 июня',
     },
 ) {
@@ -17,13 +19,14 @@ export default function JobCard(
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.info}>{salary} · {location}</Text>
         <Button
+            onPress={() => Linking.openURL(link)}
             type="solid"
             buttonStyle={{
               borderRadius: 10,
               margin: 10,
             }}
         >
-          Подробнее
+          Откликнуться
         </Button>
       </Card>
 
