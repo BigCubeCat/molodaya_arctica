@@ -5,12 +5,18 @@ import EventsPage from '../Page/EventsPage';
 import NewsSVG from '../SVG/news';
 import EventsSVG from '../SVG/events';
 import SpacesPage from '../Page/SpacesPage';
+import AllPage from '../Page/AllPage';
 
 const DrawerNav = createDrawerNavigator();
 
 const Drawer = () => {
   return (
       <DrawerNav.Navigator>
+        <DrawerNav.Screen name="Актуальное" component={AllPage} options={{
+          drawerIcon: ({focused, size}) => (
+              <NewsSVG/>
+          ),
+        }}/>
         <DrawerNav.Screen name="Новости" component={Home} options={{
           drawerIcon: ({focused, size}) => (
               <NewsSVG/>
