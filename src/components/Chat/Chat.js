@@ -25,30 +25,34 @@ export default function Chat({chat_id = '0'}) {
       setAllMessages(data);
     };
     fetchReq().catch(console.error);
-    setMessage('')
+    setMessage('');
   };
+  console.log(user)
   return (
-      <View style={styles.chat}>
-        <View>
-          {
-            allMessages.map(
-                mess => <Message
-                    text={mess.message}
-                    myself={mess.author == user}
-                />)
-          }
+      <View>
+        <View style={styles.chat}>
+          <View>
+            {
+              allMessages.map(
+                  mess => <Message
+                      text={mess.message}
+                      myself={mess.author == user}
+                  />)
+            }
+          </View>
+
         </View>
         <View style={styles.send_form}>
           <TextInput
               style={styles.input}
               onChangeText={setMessage}
               value={message}
-              placeholder="Ваш коментарий"
+              placeholder="Комментарии к событию"
           />
           <Button
               buttonStyle={styles.send_button}
               onPress={() => {
-                setMessage('')
+                setMessage('');
                 const fetchRequest = async () => {
                   await sendMessage(chat_id, user, message);
                 };
@@ -58,24 +62,24 @@ export default function Chat({chat_id = '0'}) {
           </Button>
         </View>
       </View>
-
   );
 }
 const styles = StyleSheet.create({
   chat_bg: {},
   send_button: {
-    width: 50,
+    width: '50%',
     height: 50,
   },
   send_form: {
-    width: '100%',
+    width: '90%',
     flexDirection: 'row',
-    marginTop: 20,
+    alignSelf: "center",
+    marginTop: 10,
     marginBottom: 10,
     alignItems: 'space-between',
   },
   input: {
-    width: '80%',
+    width: '85%',
     borderWidth: 1,
     borderColor: '#adadad',
     height: 50,
