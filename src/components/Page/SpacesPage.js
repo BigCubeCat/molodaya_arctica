@@ -14,6 +14,7 @@ export default function SpacesPage() {
       <ScrollView>
         {events.map(poster => {
           return <SpaceCard
+              id={"s"+poster.id}
               title={poster.title}
               address={poster.address.title}
               imageUri={poster.media[0].path}

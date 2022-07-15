@@ -1,5 +1,6 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from "../Home/Home";
+import React from 'react';
 import EventsPage from "../Page/EventsPage";
 import NewsSVG from "../SVG/news";
 import EventsSVG from "../SVG/events";

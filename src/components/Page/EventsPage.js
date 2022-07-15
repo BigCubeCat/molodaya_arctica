@@ -14,6 +14,7 @@ export default function EventsPage() {
       <ScrollView>
         {events.map(poster => {
           return <CustomCard
+              id={'e'+poster.id}
               title={poster.title} cardContent={poster.caption}
               imageUri={poster.media[0].path}
               city={poster.address.settlement}

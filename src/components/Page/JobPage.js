@@ -14,6 +14,7 @@ export default function SpacesPage() {
       <ScrollView>
         {jobs.map(poster => {
           return <SpaceCard
+              id={'j'+poster.id}
               title={poster.title}
               location={poster.address.title}
               description={poster.caption}
