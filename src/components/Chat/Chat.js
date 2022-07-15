@@ -5,6 +5,7 @@ import {Button, Icon, Input, Text} from '@rneui/base';
 import {StyleSheet} from 'react-native-web';
 import {getChat, sendMessage} from '../../utils/chatClient';
 import {AppContext} from '../../../App';
+import Message from './Message';
 
 export default function Chat({chat_id = '0'}) {
   const {isSignedIn, setIsSignedIn, user, setUser} = React.useContext(
@@ -14,7 +15,7 @@ export default function Chat({chat_id = '0'}) {
   useEffect(() => {
     const fetchReq = async () => {
       let [data, error] = await getChat(chat_id);
-      console.log(data, error)
+      console.log(data, error);
       setAllMessages(data);
     };
     fetchReq().catch(console.error);
@@ -22,9 +23,13 @@ export default function Chat({chat_id = '0'}) {
   return (
       <View>
         <ScrollView>
-          {allMessages.map(mess => {
-            return <Text>{mess.message}</Text>;
-          })}
+          {
+            allMessages.map(
+                mess => <Message
+                    text={mess.message}
+                    myself={mess.author === user}
+                />)
+          }
         </ScrollView>
         <Input
             style={styles.input}
