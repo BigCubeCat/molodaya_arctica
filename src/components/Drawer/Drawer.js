@@ -1,27 +1,33 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Home from "../Home/Home";
+import Home from '../Home/Home';
 import React from 'react';
-import EventsPage from "../Page/EventsPage";
-import NewsSVG from "../SVG/news";
-import EventsSVG from "../SVG/events";
+import EventsPage from '../Page/EventsPage';
+import NewsSVG from '../SVG/news';
+import EventsSVG from '../SVG/events';
+import SpacesPage from '../Page/SpacesPage';
 
 const DrawerNav = createDrawerNavigator();
 
 const Drawer = () => {
-    return (
-        <DrawerNav.Navigator >
-            <DrawerNav.Screen name="Новости" component={Home} options={{
-                drawerIcon: ({focused, size}) => (
-                    <NewsSVG/>
-                ),
-            }}/>
-            <DrawerNav.Screen name="События" component={EventsPage} options={{
-                drawerIcon: ({focused, size}) => (
-                    <EventsSVG/>
-                ),
-            }}/>
-        </DrawerNav.Navigator>
-    );
-}
+  return (
+      <DrawerNav.Navigator>
+        <DrawerNav.Screen name="Новости" component={Home} options={{
+          drawerIcon: ({focused, size}) => (
+              <NewsSVG/>
+          ),
+        }}/>
+        <DrawerNav.Screen name="События" component={EventsPage} options={{
+          drawerIcon: ({focused, size}) => (
+              <EventsSVG/>
+          ),
+        }}/>
+        <DrawerNav.Screen name="Пространства" component={SpacesPage} options={{
+          drawerIcon: ({focused, size}) => (
+              <EventsSVG/>
+          ),
+        }}/>
+      </DrawerNav.Navigator>
+  );
+};
 
-export default Drawer
+export default Drawer;

@@ -16,8 +16,7 @@ export default function SpaceCard(
   return (
       <Card containerStyle={styles.card}>
         <View style={styles.row}>
-          <Avatar rounded={true} size={64} source={imageUri}
-                  avatarStyle={{padding: 5}}/>
+          <Card.Image  source={imageUri} />
           <View style={styles.title}>
             <Text>{title}</Text>
             <Text style={styles.address}>{address}</Text>

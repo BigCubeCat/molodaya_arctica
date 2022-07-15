@@ -3,6 +3,7 @@ import {fetchAPI} from '../../utils/API';
 import {BackHandler, ScrollView} from 'react-native';
 import CustomCard from '../CustomCard/CustomCard';
 import Chat from '../Chat/Chat';
+import {Button, Text} from '@rneui/base';
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -31,7 +32,17 @@ export default function EventsPage() {
     const poster = events[currentCard];
     BackHandler.addEventListener('hardwareBackPress', function () {setCurrentCard(null)})
       return (
-        <ScrollView><CustomCard
+        <ScrollView>
+          <Button
+              type={"clear"}
+              onPress={() => setCurrentCard(null)}
+              buttonStyle={{marginTop: 10}}
+          >
+            <Text style={{color: 'black'}}>
+              Назад
+            </Text>
+          </Button>
+          <CustomCard
             id={'e' + poster.id}
             num={null} chooseCallback={() => setCurrentCard(null)}
             title={poster.title} cardContent={poster.caption}
